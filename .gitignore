@@ -1,2 +1,8 @@
+# Entornos virtuales
+venv/
+# Archivos de base de datos
 /db.sqlite3
-/venv
+# Archivos de cache de Python
+*.pyc
+__pycache__/
+# Carpetas de co

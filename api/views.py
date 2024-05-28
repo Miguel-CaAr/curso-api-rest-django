@@ -51,3 +51,15 @@ def crear_curso(request):
     }
 
     return JsonResponse(context)
+
+""" USO DE DRF """
+from rest_framework import generics, serializers
+
+class CursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Curso
+        fields = '__all__'
+    
+class CursoList(generics.ListCreateAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
