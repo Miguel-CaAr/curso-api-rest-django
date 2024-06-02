@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django Rest Framework
     'rest_framework',
+    # Cloudinary
+    'cloudinary',
     # Apps
     'pos',
+    'api_admin',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +129,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+cloudinary.config(
+    cloud_name="dt16cvqck",
+    api_key="658463926542643",
+    api_secret="MCrwQHBOiUwwGN-W_lB9-kif5W8"
+)
