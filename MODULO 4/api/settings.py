@@ -40,13 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django Rest Framework
     'rest_framework',
-    # Cloudinary
+    'rest_framework.authtoken',
+    # Cloudinary (Para almacenar imagenes)
     'cloudinary',
     # Apps
     'pos',
     'api_admin',
     'api_auth',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
