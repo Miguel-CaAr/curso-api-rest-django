@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # Django Rest Framework
     'rest_framework',
     'rest_framework.authtoken',
+    #JWT
+    'rest_framework_simplejwt',
     # Cloudinary (Para almacenar imagenes)
     'cloudinary',
     # Apps
@@ -54,6 +56,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
@@ -145,3 +148,13 @@ cloudinary.config(
     api_key="658463926542643",
     api_secret="MCrwQHBOiUwwGN-W_lB9-kif5W8"
 )
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,
+    "TOKEN_OBTAIN_SERIALIZER": "api_auth.serializers.LoginSerializer",
+  }
